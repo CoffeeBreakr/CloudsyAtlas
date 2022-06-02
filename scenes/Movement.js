@@ -94,15 +94,16 @@ class Movement extends Phaser.Scene {
         // check keyboard input
         if(cursors.left.isDown) {
             this.player.body.setVelocityX(-this.VELOCITY);
-            //this.player.anims.play('run_left', true);
+            this.player.anims.play('run_left', true);
 
         } else if(cursors.right.isDown) {
             this.player.body.setVelocityX(this.VELOCITY);
-            //this.player.anims.play('run_right', true);
+            this.player.anims.play('run_right', true);
 
         } else if (!cursors.right.isDown && !cursors.left.isDown) {
             this.player.body.setVelocityX(0);
             // add code for idle animation play here:
+            this.player.anims.play('idle_right', true);
 
 
             
