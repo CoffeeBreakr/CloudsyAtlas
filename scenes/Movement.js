@@ -26,6 +26,8 @@ class Movement extends Phaser.Scene {
             }),
             frameRate: 15,
             repeat: -1,
+            repeatDelay: 5000,
+            yoyo: true
         });
 
         // Idle right
@@ -40,6 +42,8 @@ class Movement extends Phaser.Scene {
             }),
             frameRate: 15,
             repeat: -1,
+            repeatDelay: 5000,
+            yoyo: true
         });
 
         // Run left
@@ -101,15 +105,14 @@ class Movement extends Phaser.Scene {
             this.player.anims.play('run_right', true);
 
         } else if (!cursors.right.isDown && !cursors.left.isDown) {
-            this.player.body.setVelocityX(0);
             // add code for idle animation play here:
             if(this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_left') {
                 this.player.anims.play('idle_left');
                 
             } else if(this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_right') {
                 this.player.anims.play('idle_right');
-                
             }
+            this.player.body.setVelocityX(0);
             
         }
     
